@@ -1,5 +1,6 @@
 import React, { useState, useRef, RefObject } from 'react';
 import styled from 'styled-components';
+import Image from './components/image';
 import useIntersectionObserver from './hooks/use-intersection-observer';
 
 interface IImageComponent {
@@ -29,10 +30,10 @@ const ImageComponent = ({ height, width, src, thumb, alt }: IImageComponent) => 
             ref={ref as RefObject<HTMLDivElement>}
             aspectRatio={aspectRatio} >
             {isVisible && (
-                <img
+                <Image
                     src={src}
                     alt={alt || undefined}
-                    className="image" />
+                    thumb={thumb} />
             )}
         </ImageContainer>
     )
